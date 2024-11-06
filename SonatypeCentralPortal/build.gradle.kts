@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -29,6 +30,20 @@ android {
     }
     kotlinOptions {
         jvmTarget = "11"
+    }
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "ir.dorantech.SonatypeCentralPortal"
+            artifactId = "SonatypeCentralPortal"
+            version = "1.00"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
     }
 }
 
