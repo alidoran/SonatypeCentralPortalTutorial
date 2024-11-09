@@ -38,7 +38,7 @@ publishing {
         register<MavenPublication>("release") {
             groupId = "ir.dorantech.SonatypeCentralPortal"
             artifactId = "SonatypeCentralPortal"
-            version = "1.00"
+            version = "1.1"
 
             afterEvaluate {
                 from(components["release"])
